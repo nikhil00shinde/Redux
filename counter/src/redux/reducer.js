@@ -9,8 +9,9 @@
 let reducer = (state = 0, action) => {
 	switch (action.type) {
 		case "INCREMENT":
-			return state + 1; //update state value with this value
-
+			return state + action.payload; //update state value with this value
+		case "DECREMENT":
+			return state - 1;
 		default:
 			return state;
 	}

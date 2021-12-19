@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementCreator } from "./redux/actions";
+import { incrementCreator, decrementCreator } from "./redux/actions";
 
 let App = () => {
 	//useSelector -> ek function leta hain jo hamare store se reducer se current state fetch karta hain
@@ -12,16 +12,26 @@ let App = () => {
 		<div>
 			<button
 				onClick={() => {
-					//ye ek object leta hain and store ko dispatch karta hain
-					//store mei hamare pass reducer ke action object mei ata hain ye incrementCreator ka object
-
-					//aur jo bhi reducer se return hota woh value state mei update hoti hain, aur update hone par store provider ko btata hain ki state update hooyi jis se hamara pura app re-render hota hain
-					dispatch(incrementCreator());
+					dispatch(incrementCreator(1));
 				}}
 			>
-				+
+				+1
+			</button>
+			<button
+				onClick={() => {
+					dispatch(incrementCreator(10));
+				}}
+			>
+				+10
 			</button>
 			<p>{state}</p>
+			<button
+				onClick={() => {
+					dispatch(decrementCreator());
+				}}
+			>
+				-
+			</button>
 		</div>
 	);
 };

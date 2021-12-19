@@ -3,12 +3,19 @@
 
 //when writing actions in redux we create something called action creater function
 
-//hum actions ke object ko action creater function(incrementCreator) se return karte hain
+//WHY WE MAKE ACTIONCREATOR FUNCTIONS, WHY NOT SAVE OBJECT DIRECTLY?
+//====> Because of payload
+//user kuch bhi data dena chahta hain
 
-export const incrementCreator = () => {
+export const incrementCreator = (value) => {
 	return {
 		type: "INCREMENT",
+		payload: value,
 	};
 };
 
-
+export const decrementCreator = () => {
+	return {
+		type: "DECREMENT",
+	};
+};
