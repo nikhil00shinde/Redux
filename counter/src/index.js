@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./redux/reducer";
+import { counterReducer, loginReducer } from "./redux/reducer";
 
-//myStore se hum reducer se state change kar sakte hain
-//store ko use karne ke liye hum createStore function ko reducer dena padtha hain
-let myStore = createStore(reducer);
+//combine multiple reducer to form one called => rootReducer
+
+let rootReducer = combineReducers({
+	count: counterReducer,
+	logged: loginReducer,
+});
+//count, logged are name of state
+
+//create store take single reducer
+let myStore = createStore(rootReducer);
 
 ReactDOM.render(
-	//Provider hmare redux ko react se connect karne ke liye
 	<Provider store={myStore}>
 		<App />
 	</Provider>,

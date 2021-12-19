@@ -1,12 +1,6 @@
-//Is a function ye actual mei state ko change karta hain
+//for multiple state make different reducer
 
-//2 argument leta hai
-//first one => intial state hoti hain (default value)
-//second one => action ka object ata hain jiske bases pe state ko change krega
-
-//actions dispatch karege toh state change kar
-
-let reducer = (state = 0, action) => {
+export const counterReducer = (state = 0, action) => {
 	switch (action.type) {
 		case "INCREMENT":
 			return state + action.payload; //update state value with this value
@@ -17,4 +11,15 @@ let reducer = (state = 0, action) => {
 	}
 };
 
-export default reducer;
+export const loginReducer = (state = false, action) => {
+	switch (action.type) {
+		case "LOGIN":
+			return false;
+
+		case "LOGOUT":
+			return true;
+
+		default:
+			return state;   
+	}
+};
