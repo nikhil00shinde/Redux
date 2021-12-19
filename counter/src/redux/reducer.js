@@ -14,12 +14,12 @@ export const counterReducer = (state = 0, action) => {
 export const loginReducer = (state = false, action) => {
 	switch (action.type) {
 		case "LOGIN":
-			return false;
-
-		case "LOGOUT":
 			return true;
 
+		case "LOGOUT":
+			return false;
+
 		default:
-			return state;   
+			return state;
 	}
 };

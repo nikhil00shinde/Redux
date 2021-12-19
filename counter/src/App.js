@@ -1,39 +1,65 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementCreator, decrementCreator } from "./redux/actions";
+import {
+	incrementCreator,
+	decrementCreator,
+	loginCreator,
+	logoutCreator,
+} from "./redux/actions";
 
 let App = () => {
-	let state = useSelector((state) => {
-		console.log(state); //it will print all the state inside store
+	let { count, logged } = useSelector((state) => {
 		return state;
 	});
 
 	let dispatch = useDispatch();
 	return (
-		<div>
-			{/* <button
+		<>
+			<button
 				onClick={() => {
-					dispatch(incrementCreator(1));
+					dispatch(loginCreator());
 				}}
 			>
-				+1
+				login
 			</button>
 			<button
 				onClick={() => {
-					dispatch(incrementCreator(10));
+					dispatch(logoutCreator());
 				}}
 			>
-				+10
+				logout
 			</button>
-			<p>{state}</p>
-			<button
-				onClick={() => {
-					dispatch(decrementCreator());
-				}}
-			>
-				-
-			</button> */}
-		</div>
+			<br></br>
+
+			{logged ? (
+				<>
+					<button
+						onClick={() => {
+							dispatch(incrementCreator(1));
+						}}
+					>
+						+1
+					</button>
+					<button
+						onClick={() => {
+							dispatch(incrementCreator(10));
+						}}
+					>
+						+10
+					</button>
+					<p>{count}</p>
+					<button
+						onClick={() => {
+							dispatch(decrementCreator());
+						}}
+					>
+						-
+					</button>
+				</>
+			) : (
+				""
+			)}
+		</>
 	);
 };
 
