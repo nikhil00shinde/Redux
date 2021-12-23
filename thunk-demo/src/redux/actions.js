@@ -18,6 +18,8 @@ export const failureCreator = (err) => {
 	};
 };
 
+//ye function middleware mei kaam karne ke liye for async work, essey hamara inconvinience kum hota hain and code duplication kum hota,
+//ye function fir store ko action dispatch karega ki kya state mei change karna hain
 export const fetchUsers = () => {
 	return (dispatch) => {
 		dispatch(fetchCreator());

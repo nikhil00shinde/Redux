@@ -4,6 +4,8 @@ let initialState = {
 	err: null,
 };
 
+//hmare object mei unique key hoti agar hum nhi key add karte for same key then woh override ho jati hain
+
 let reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "FETCH_USERS":

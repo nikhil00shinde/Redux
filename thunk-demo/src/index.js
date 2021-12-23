@@ -6,6 +6,7 @@ import reducer from "./redux/reducers";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
+//humhe store ko btane ke liye hum thunk add kar rahe hain 
 let myStore = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
